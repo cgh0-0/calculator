@@ -45,13 +45,15 @@ int main()
 
 	std::cout << "Please enter the desired operation among +, -, *, /." << std::endl;
 	std::cin >> operation;
+	T result;
 	switch (operation)
 	{
-	case'+':add(a,b)
-	case'-':minus(a, b);
-	case'*':multiple(a, b);
-	case '/':division(a,b)
+	case'+':result = add(a, b);
+	case'-':result = minus(a, b);
+	case'*':result = multiple(a, b);
+	case '/':result = division(a, b);
 
 	}
-	std::cout<<a<<operation<<b<<"="<<
+	std::cout << a << operation << b << "=" << result;
+	return 0;
 }
