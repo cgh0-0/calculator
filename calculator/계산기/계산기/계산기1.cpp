@@ -37,11 +37,11 @@ T division(T a, T b)
 	}
 	return a / b;
 }
-
-void calculatorint()
+template <typename t>
+void calculator()
 {
-	int a;
-	int b;
+	t a;
+	t b;
 	std::cout << "Please enter the first number to calculate" << std::endl;
 	std::cin >> a;
 	std::cout << "Please enter the second number to calculate" << std::endl;
@@ -50,7 +50,7 @@ void calculatorint()
 
 	std::cout << "Please enter the desired operation among +, -, *, /." << std::endl;
 	std::cin >> operation;
-	int result;
+	t result;
 	switch (operation)
 	{
 	case'+':result = add(a, b);
@@ -77,7 +77,7 @@ void calculatorint()
 		std::cout << "Please enter the desired operation among +, -, *, /." << std::endl;
 		std::cin >> operation;
 		int result;
-		switch (operation)
+		switch(operation)
 		{
 		case'+':result = add(a, b);
 			break;
@@ -96,64 +96,7 @@ void calculatorint()
 
 	std::cout << a << operation << b << "=" << result;
 }
-void realnumcalculator() {
-	double a;
-	double b;
 
-	std::cout << "Please enter the first number to calculate" << std::endl;
-	std::cin >> a;
-	std::cout << "Please enter the second number to calculate" << std::endl;
-	std::cin >> b;
-	char operation;
-
-	std::cout << "Please enter the desired operation among +, -, *, /." << std::endl;
-	std::cin >> operation;
-	double result;
-	switch (operation)
-	{
-	case'+':result = add(a, b);
-		break;
-	case'-':result = minus(a, b);
-		break;
-	case'*':result = multiple(a, b);
-		break;
-	case '/':result = division(a, b);
-		break;
-
-	}
-	std::cout << a << operation << b << "=" << result << std::endl;
-	std::cout << "Would you like to perform an operation on the result? y/n" << std::endl;
-	char yn;
-	std::cin >> yn;
-	do
-	{
-		a = result;
-		std::cout << "Please enter the second number to calculate" << std::endl;
-		std::cin >> b;
-		char operation;
-
-		std::cout << "Please enter the desired operation among +, -, *, /." << std::endl;
-		std::cin >> operation;
-		double result;
-		switch (operation)
-		{
-		case'+':result = add(a, b);
-			break;
-		case'-':result = minus(a, b);
-			break;
-		case'*':result = multiple(a, b);
-			break;
-		case '/':result = division(a, b);
-			break;
-
-		}
-		std::cout << a << operation << b << "=" << result << std::endl;
-		std::cout << "Would you like to perform an operation on the result? y/n" << std::endl;
-		std::cin >> yn;
-	} while (yn == 'Y' || yn == 'y');
-
-	std::cout << a << operation << b << "=" << result;
-}
 
 int main()
 {
@@ -165,11 +108,11 @@ int main()
 	
 	if (intorreal == "interger"||intorreal=="int")
 	{
-		calculatorint();
+		calculator<int>();
 	}
 	else if (intorreal == "realnum"||intorreal=="real")
 	{	
-		realnumcalculator();
+		calculator<double>();
 	}
 
 	
