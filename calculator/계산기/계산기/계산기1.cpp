@@ -56,7 +56,39 @@ int main()
 		break;
 
 	}
+	std::cout << a << operation << b << "=" << result << std::endl;
+	std::cout << "Would you like to perform an operation on the result? y/n" << std::endl;
+	char yn;
+	std::cin >> yn;
+	do 
+	{
+		a = result;
+		std::cout << "Please enter the second number to calculate" << std::endl;
+		std::cin >> b;
+		char operation;
+
+		std::cout << "Please enter the desired operation among +, -, *, /." << std::endl;
+		std::cin >> operation;
+		double result;
+		switch (operation)
+		{
+		case'+':result = add(a, b);
+			break;
+		case'-':result = minus(a, b);
+			break;
+		case'*':result = multiple(a, b);
+			break;
+		case '/':result = division(a, b);
+			break;
+			
+		}
+		std::cout << a << operation << b << "=" << result << std::endl;
+		std::cout << "Would you like to perform an operation on the result? y/n" << std::endl;
+		std::cin >> yn;
+	} while (yn == 'Y' || yn == 'y');
+		
 	std::cout << a << operation << b << "=" << result;
+			
+	
 	return 0;
 }
-
